@@ -1,0 +1,41 @@
+
+{% extends 'layout.html' %}
+{% from 'helpers/_forms.html' import render_field %}
+{% block container %}
+
+<div class="d-inline-block">
+  <h2>Listado de {{ title }}</h2>
+  <a href="{{url_for('.task_new') }}">Nueva Tarea</a>
+</div>
+<table class="table">
+  <thead>
+    <th scope='col'>Titulo</th>
+    <th scope='col'>Descripcion</th>
+    <th scope='col'></th>
+  </thead>
+<tbody>
+  {% for task in tasks %}
+  <tr>
+
+    <td><a href="{{ url_for('.get_task', task_id=task.id) }}">{{ task.title }}</a></td>
+    <td>{{ task.little_description }}</td>
+    <td>
+      <a class="btn btn-primary" href="{{ url_for('.task_edit',   task_id=task.id) }}">Editar</a>
+      <a class="btn btn-danger"  href="{{ url_for('.delete_task', task_id=task.id) }}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+{#<nav class="pagination">
+  <ul>
+    {% if pagination.has_prev %}
+    <li class="page_item">
+      <a href="{{ url_for('.tasks', page=page -1) }}"></a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>#}
+
+{% endblock %}

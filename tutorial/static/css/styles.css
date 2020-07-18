@@ -1,0 +1,15 @@
+body{
+  background-color: green;
+}
+
+footer{
+			position:fixed;
+   		left:0px;
+			bottom:0px;
+			height:100px;
+			width:100%;
+			background:red;
+			color:white;
+			font-size:50px;
+			text-align: center;
+		}

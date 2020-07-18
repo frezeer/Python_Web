@@ -1,0 +1,283 @@
+en windows abriendo con cmder
+
+cd C:\Proyectocore\python_web                          #ruta donde creare el proyecto
+ 
+virtualenv venv                                        #Generamos y entramos al entorno virtual                
+
+C:\Proyectocore\python_web\venv\Scripts\activate.bat   #comando para activar el entorno virtual
+
+(venv) C:\Proyectocore\python_web\                     #nos mostrara (venv) al inicio de la ruta esto confirma que estamos en el entorno virtual
+
+C:\Proyectocore\python_web\venv\Scripts\deactivate.bat #comando para desactivar el entorno virtual
+
+pip install flask				       #instalar flask con python
+
+comprobar que flask esta trabajando
+
+
+C:\Proyectocore\python_web\venv\python3
+
+
+>>import flask
+>>
+
+#no debera mandar mensaje de error
+
+salimos con exit()
+
+
+#ls .
+
+#mkdir tutorial
+
+#cd tutorial\
+
+#atom .							#abrimos el direcorio con atom
+
+
+creamos el archivo main.py
+--------------------------------
+
+from flask import Flask
+
+app = Flask(__name__)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=9000)    
+
+----------------------------------
+
+corremos con el comando 
+
+#python main.py
+
+entramos al url = http://localhost
+
+
+
+--------------------------------------------------------------------------------
+
+nuevo projecto
+
+mkdir project
+
+virtualenv env   
+
+cd C:\Proyectocore\python_web\project
+
+C:\Proyectocore\python_web\project\env\Scripts\activate.bat
+
+(env) C:\Proyectocore\python_web\project
+
+pip install Flask
+
+pip install Flask-script
+
+https://j2logo.com/virtualenv-pip-librerias-python/
+
+#python 
+
+>>> import flask_script
+>>> exit()
+
+
+pip install Flask-Bootstrap4
+
+pip install WTForms
+
+pip install Flask-WTF
+
+pip install Flask-SQLAlchemy
+
+pip install mysqlclient
+
+pip install Werkzeug  
+
+python manager.py runserver
+
+
+en linux:
+instala pip
+sudo apt install python-pip
+sudo pip install virtualenv
+
+
+Hola danielesparza94, si bien puedes tomar el curso con la versión 2.7,
+
+ lo mejor sería que ya no lo hicieras, 
+
+y que a partir de este momento todos tus proyectos fueran con la versión 3.x ya que la versión 2 de Python ya no posee soporte alguno. 
+Esto entro en vigencia el primero de enero del 2020.
+
+
+ Tiene un par de meses, así que es mejor actualizar a la versión 3.
+
+HOLA A TODOS LES TENGO LA SOLUCIÓN QUE AQUÍ NI LA DAN.
+
+
+https://www.pythoniza.me/instalando-mysqlclient-en-windows/
+
+https://www.pythoniza.me/tips-bootstrap-parte-1/
+
+
+mysql en django
+
+
+https://www.youtube.com/watch?v=8gSjvehTqAk
+
+
+
+
+python manage.py runserver
+
+---------------------------------------------------------------------------------------------------------------
+
+
+Para los usuarios de Windows, voy a compartir mi manera de solucionarlo. 
+Soy usuario de XAMPP. Para crear la base de datos active Apache + MySQL, fui al administrador de MySQL (phpMyAdmin), 
+cree mi base de datos "project_web_facilito" y luego agregue la ruta en config.py de la siguiente forma:
+
+    userpass = 'mysql://root:@'
+    basedir = '127.0.0.1'
+    dbname = '/project_web_facilito'
+    
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = userpass + basedir + dbname
+
+	Luego para instalar el mysqlclient se hace a través de binario (.whl) como lo indica
+
+
+	 pip3 install mysqlclient
+
+------------------------------------------------------------------------------------------------------------------ 
+
+https://www.youtube.com/watch?v=LhsGA9PJtG0
+
+https://www.youtube.com/watch?v=Btlnfhh-Gac
+
+
+python en windows y mac ox
+
+https://www.youtube.com/watch?v=S8V8lgp48Rg
+
+
+
+
+Instalar paquetes wheel 
+
+https://www.youtube.com/watch?v=MzV4N4XUvYc
+
+llenen una variable de esta forma:
+
+DB_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username = "tu_username",
+    password = "tu_password.",
+    hostname = "localhost",
+    databasename = "tu_db"
+)
+
+luego solo la llaman asi:
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = DB_URI
+    pass
+
+luelo para que todo funcione bien instalen esto:
+
+pip install mysql-connector-python
+
+agreguen esto a la configuracion:
+
+SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+
+
+DE NADA Y SIGAN APRENDIENDO...
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chicos de windows, no se desesperen, les tengo la solución para los que les da error en pip install mysqlclient, es muy sencillo, 
+sólo presten atención a estos pasos muy fáciles. 
+Para los que tengan arquitectura de 64 bits (sino saben de que hablo busquen en google como "¿Qué arquitectura es mi PC/lap?") 
+vayan a esta dirección 
+
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient y descarguen este archivo,  mysqlclient-1.4.5-cp38-cp38-win32.whl, 
+
+yo descargué cp38 porque tengo python 3.8, si tienes python 3.7 descarga el cp37 de hecho les APARECERÁN dos 
+
+archivos con casi el mismo nombre sólo que el otro dice win64.whl, bajen el de 32, pueden probar descargando el de 64 pero les dará problemas y ya en terminal, 
+
+este paso es IMPORTANTE  coloquen el archivo a la altura de su carpeta env o el nombre que le hayan puesto a su entrono viertual y ejecuten
+
+pip install mysqlclient-1.4.5-cp38-cp38-win32.whl 
+
+A mi me generaba un problema con el enviroment, me funciono fue poniendolo en una carpeta fuera del enviroment (en mi caso en el directorio raíz d:) y ejecute el comando de la siguiente manera:
+
+pip install d:\mysqlclient-1.4.6-cp38-cp38-win32.whl
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instalacion en 2.7 que jalo
+https://blog.robertabel.eu/2018/01/21/compiling-mysqlclient-for-python-2-7-on-windows-7-and-up/
+
+There is a much simpler way for python 2.7.
+Go to: https://github.com/PyMySQL/mysqlclient-python/issues/54
+Search for the post by user “methane” Oct 2, 2016. methane is the author of the wheels for python 2.7. 
+The link to the files is given in his post. 
+Download the file corresponding to your OS and install:
+> pip install mysqlclient-1.3.9-cp27-cp27m-win32.whl
+
+https://github.com/PyMySQL/mysqlclient-python/issues/54
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instalacion en 2.7 que jalo
+
+https://github.com/PyMySQL/mysqlclient-python/issues/54
+
+https://github.com/PyMySQL/mysqlclient-python/releases/tag/1.3.8
+
+
+pip install -U pip setuptools wheel 
+
+pip install C:\Users\sistemas\Downloads\mysqlclient-1.3.9-cp27-cp27m-win_amd64.whl
+
+
+C:\Proyectocore\python_web\project
+(env) ? pip freeze
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+click==7.1.2
+dominate==2.5.1
+Flask==1.1.2
+Flask-Bootstrap4==4.0.2
+Flask-Script==2.0.6
+Flask-SQLAlchemy==2.4.3
+Flask-WTF==0.14.3
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+mysql-connector-python==8.0.20
+mysqlclient @ file:///C:/Users/sistemas/Downloads/mysqlclient-1.3.9-cp27-cp27m-win_amd64.whl
+protobuf==3.12.2
+six==1.15.0
+SQLAlchemy==1.3.18
+visitor==0.1.3
+Werkzeug==1.0.1
+WTForms==2.3.1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instaldo flask mysql
+ejemplos
+
+https://www.youtube.com/watch?v=h5dM9K_EKVw
+
+
+https://www.youtube.com/watch?v=IgCfZkR8wME
+
+
+Python Flask y Mysql Aplicación Web | Aplicación de Ejemplo
+
+
+https://github.com/PyMySQL/mysqlclient-python
+
+

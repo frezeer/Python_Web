@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% from 'helpers/_forms.html' import render_field %}
+
+{% block container %}
+<h3>Registro de Usuarios</h3>
+<div class="col-md-12 col-md-offset-1" >
+    <form class=""  method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" \>
+      <div class="form-group" >
+        {{ render_field(form.username , class='form-control' , placeholder='Escribe tu Nombre de Usuario') }}
+      </div>
+      <div class="form-group" >
+        {{ render_field(form.email, class='form-control' , placeholder='Escribe tu Correo electronico') }}
+      </div>
+      <div class="form-group" >
+        {{ render_field(form.password, class='form-control' , placeholder='Escribe tu contraseña') }}
+      </div>
+      <div class="form-group" >
+        {{ render_field(form.confirm_password, class='form-control' , placeholder='Repite tu contraseña') }}
+      </div>
+      <div class="form-check">
+        {{ form.accept(class_='form-check-input') }}
+        <label for="" class="form-check-bale">Acepto los Terminos y condiciones</label>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Registro</button>
+    </form>
+</div>
+{% endblock %}

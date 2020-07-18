@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% from 'helpers/_forms.html' import render_field %}
+
+{% block container %}
+<h3>Edicion de {{ title }}</h3>
+<div class="col-md-12 col-md-offset-1" >
+    <form class=""  method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" \>
+      <div class="form-group" >
+        {{ render_field(form.title , class='form-control' , placeholder='Escribe un titulo de tarea') }}
+      </div>
+      <div class="form-group" >
+        {{ render_field(form.description, class='form-control' , placeholder='Escribe una descripcion') }}
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Editar Tarea</button>
+    </form>
+</div>
+{% endblock %}

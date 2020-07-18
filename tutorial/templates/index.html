@@ -1,0 +1,41 @@
+{% extends 'base0.html' %}
+
+{% block content %}
+
+    <h2>Hola mundo {{ name }}</h2>
+    <p><strong>{{ apellido }} </strong></p>
+    <p>  El mensaje se encuentra dentro de una pagina html</p>
+    <p>  El curso en el que te encuentras es <strong>{{ curso }}</strong></p>
+
+    {% if is_premium %}
+    <p>  El curso en el que estas es Premium</p>
+    {% else %}
+      <p>  El curso en el que estas es Gratuito</p>
+    {% endif %}
+
+    {% if courses %}
+    <p>Listado de Cursos:</p>
+    <ul>
+      {% for listar_cursos in courses %}
+      <li>{{ listar_cursos }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <table border="1">
+      <img src="{{ url_for('static', filename='images/diana.jpeg')}}" width="200px" height="200px" alt="diana morales">
+    </table>
+
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+      <div class="footer">
+      <marquee>
+					Las mejores ofertas las encontraras en esta pagina , por favor sientete comodo y no dudes de preguntar
+					por este medio , nuestras promosiones y variedada de articulos..............................
+					 <!--img src="car.png" width="150px;"  -->
+				</marquee>
+      </div>
+    </footer>
+    {% endblock %}
